@@ -51,19 +51,7 @@ static NSString * const dataProviderServiceType = @"DM-provider";
     
     self.view.backgroundColor = [UIColor colorWithWhite:.95 alpha:1.];
     
-    validProviders = [NSMutableDictionary dictionary];//[NSMutableSet set];
-    
-//    NSMutableDictionary *foo = [NSMutableDictionary dictionary];
-//    [foo removeObjectForKey:@"foo"];
-//    [foo setObject:@"1" forKey:@"foo"];
-//    NSLog(@"%lu", (unsigned long)foo.count);
-////    [foo removeObjectForKey:@"foo"];
-////    NSLog(@"%lu", (unsigned long)foo.count);
-//    for (NSString *key in foo.keyEnumerator) {
-//        NSLog(@"%@", key);
-//        NSLog(@"%@", foo[key]);
-//    }
-//    return;
+    validProviders = [NSMutableDictionary dictionary];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults registerDefaults:@{PROVIDER_PASSCODE_KEY: @"", IS_PROVIDER_KEY: @(NO), ACCOUNT_CREDIT_KEY: @(1000000)}];
