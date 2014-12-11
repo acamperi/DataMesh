@@ -349,7 +349,7 @@ static NSString * const dataProviderServiceType = @"DM-provider";
     NSError *error;
     NSLog(@"%@", requestString);
     NSString *loadedHTMLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:requestString] encoding:NSASCIIStringEncoding error:nil];
-    if (![providerPasscode.text isEqualToString:password])
+    if (![providerPasscode.text isEqualToString:password] || providerPasscode.text.length == 0)
         [self updateCreditWithChange:loadedHTMLString.length];
     NSData *HTMLData = [loadedHTMLString dataUsingEncoding:NSUTF8StringEncoding];
     if ([session sendData:HTMLData toPeers:@[peerID] withMode:MCSessionSendDataReliable error:&error])
@@ -401,7 +401,7 @@ static NSString * const dataProviderServiceType = @"DM-provider";
             NSLog(@"%@", validProviders);
             NSLog(@"%@", validProviders[peerID.displayName][1][ADVERTISEMENT_PASSWORD]);
             NSLog(@"%@", providerPasscode.text);
-            if (![providerPasscode.text isEqualToString:validProviders[peerID.displayName][1][ADVERTISEMENT_PASSWORD]])
+            if (![providerPasscode.text isEqualToString:validProviders[peerID.displayName][1][ADVERTISEMENT_PASSWORD]] || providerPasscode.text.length == 0)
                 [self updateCreditWithChange:-stringInterpretation.length];
         }
         else
